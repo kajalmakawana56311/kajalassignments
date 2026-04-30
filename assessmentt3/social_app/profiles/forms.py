@@ -1,0 +1,14 @@
+from django import forms
+from .models import UserProfile
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ['username', 'age', 'is_public', 'photo']
+
+    def clean_age(self):
+        age = self.cleaned_data.get('age')
+        if age < 13:
+            raise forms.ValidationError("Age must be 13+")
+        return age

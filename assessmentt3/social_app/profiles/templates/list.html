@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profiles</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📱 Social Profiles</h2>
+
+<a href="/create/" class="btn btn-add">➕ Add Profile</a>
+<a href="/export/" class="btn btn-export">⬇ Export CSV</a>
+
+<div class="grid">
+{% for p in profiles %}
+<div class="card">
+
+    {% if p.photo %}
+        <img src="{{ p.photo.url }}">
+    {% endif %}
+
+    <div class="card-body">
+        <h3>{{ p.username }}</h3>
+        <p>Age: {{ p.age }}</p>
+
+        {% if p.is_public %}
+            <span class="badge public">Public</span>
+        {% else %}
+            <span class="badge private">Private</span>
+        {% endif %}
+    </div>
+
+</div>
+{% endfor %}
+</div>
+
+</div>
+
+</body>
+</html>
