@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor List</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<h1 style="text-align:center;">👨‍⚕️ Doctor List</h1>
+
+<div class="container">
+
+    {% for d in doctors %}
+   <div class="profile-card">
+    <div class="emoji">👨‍⚕️</div>
+    <h2>{{ d.name }}</h2>
+    <p>{{ d.specialization }}</p>
+    <p>Experience: {{ d.experience }}</p>
+   </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

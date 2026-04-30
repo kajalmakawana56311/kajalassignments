@@ -1,0 +1,10 @@
+<h2>Update Doctor</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input name="name" value="{{ doctor.name }}"><br>
+    <input name="email" value="{{ doctor.email }}"><br>
+    <input name="phone" value="{{ doctor.phone }}"><br>
+    <input name="specialization" value="{{ doctor.specialization }}"><br>
+    <button type="submit">Update</button>
+</form>

@@ -1,0 +1,22 @@
+<h2>Add Doctor</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input name="name" placeholder="Name"><br>
+    <input name="email" placeholder="Email"><br>
+    <input name="phone" placeholder="Phone"><br>
+    <input name="specialization" placeholder="Specialization"><br>
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+<h2>Doctor List</h2>
+
+{% for d in doctors %}
+<p>
+    {{ d.name }} - {{ d.email }}
+    <a href="/update/{{ d.id }}/">Edit</a>
+    <a href="/delete/{{ d.id }}/">Delete</a>
+</p>
+{% endfor %}

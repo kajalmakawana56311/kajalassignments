@@ -1,0 +1,16 @@
+<h2>Doctor List</h2>
+
+<a href="/add/">Add Doctor</a>
+
+<ul>
+{% for d in doctors %}
+    <li>
+        {{ d.name }} - {{ d.specialization }} - {{ d.experience }} years
+        {% if d.is_available %}
+            (Available)
+        {% else %}
+            (Not Available)
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

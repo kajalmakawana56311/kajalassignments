@@ -1,0 +1,9 @@
+<h2>Doctor Information</h2>
+
+<ul>
+{% for d in doctors %}
+    <li>
+        {{ d.name }}  {{ d.specialization }}  {{ d.experience }} years
+    </li>
+{% endfor %}
+</ul>
